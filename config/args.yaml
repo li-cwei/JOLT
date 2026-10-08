@@ -1,0 +1,94 @@
+DEFAULT: &DEFAULT
+  seed: 0
+
+JOLT: &JOLT
+  model_name: JOLT
+  <<: *DEFAULT
+
+JOLT-ACM-Node:
+  <<: *JOLT
+  nb_epochs: 500
+  lr: 0.0025
+  patience: 30
+  hid_units: 256
+  hid_units2: 128
+  out_ft: 256
+  g_dim: 64
+  alpha: 200
+  beta: 100
+  tau: 0.6
+  gamma: 0.01
+  distance_quantile: 0.9
+  K: 30
+  theta: 1
+  eta: 1
+  dropout_rate: 0.2
+  het_layers: 1
+  hetero_layers: 1
+  act: relu
+
+JOLT-DBLP-Node:
+  <<: *JOLT
+  nb_epochs: 500
+  lr: 0.0005
+  patience: 30
+  hid_units: 256
+  hid_units2: 512
+  out_ft: 256
+  g_dim: 128
+  alpha: 200
+  beta: 500
+  tau: 0.5
+  gamma: 0.001
+  distance_quantile: 0.6
+  theta: 1
+  eta: 1
+  dropout_rate: 0.1
+  het_layers: 1
+  hetero_layers: 2
+  K: 0
+  act: relu
+
+JOLT-IMDB-Node:
+  <<: *JOLT
+  nb_epochs: 500
+  lr: 0.001
+  patience: 30
+  hid_units: 128
+  hid_units2: 128
+  out_ft: 256
+  g_dim: 1024
+  alpha: 10
+  beta: 200
+  tau: 1
+  distance_quantile: 0.8
+  gamma: 0.001
+  K: 0
+  theta: 2
+  eta: 1
+  dropout_rate: 0.7
+  het_layers: 1
+  hetero_layers: 2
+  act: elu
+
+JOLT-Yelp-Node:
+  <<: *JOLT
+  nb_epochs: 500
+  lr: 0.0005
+  patience: 30
+  hid_units: 256
+  hid_units2: 256
+  out_ft: 128
+  g_dim: 256
+  alpha: 1
+  beta: 50
+  tau: 0.6
+  distance_quantile: 0.8
+  gamma: 0.05
+  theta: 1
+  eta: 1
+  dropout_rate: 0.1
+  het_layers: 1
+  hetero_layers: 2
+  K: 0
+  act: relu
